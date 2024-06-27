@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="docker-file.yml" />
+    <None Remove="Views\Images\icon-atualizar.png" />
+    <None Remove="Views\Images\icon-csv.png" />
+    <None Remove="Views\Images\logo-polo-capital-desktop.png" />
+    <None Remove="Views\Images\save-icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.5.1" />
+    <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="OxyPlot.Core" Version="2.1.2" />
+    <PackageReference Include="OxyPlot.Wpf" Version="2.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Views\Images\icon-atualizar.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Images\icon-csv.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Images\logo-polo-capital-desktop.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Images\save-icon.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="NewFolder\" />
+  </ItemGroup>
+
+</Project>

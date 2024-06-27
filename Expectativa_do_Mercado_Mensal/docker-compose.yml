@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: sqlserver
+    ports:
+      - "1433:1433"
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "expcMercad2024"
+    volumes:
+      - ./Script:/script
+    entrypoint: /bin/bash -c "/script/entrypoint.sh & /opt/mssql/bin/sqlservr"
