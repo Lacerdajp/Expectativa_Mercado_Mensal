@@ -183,6 +183,7 @@ namespace Expectativa_do_Mercado_Mensal.ViewModels
             yMax += paddingY;
 
             PlotModel.Axes.Clear();
+            PlotModel.Title = indicador;
             PlotModel.Axes.Add(new DateTimeAxis
             {
                 Position = AxisPosition.Bottom,
@@ -205,7 +206,7 @@ namespace Expectativa_do_Mercado_Mensal.ViewModels
         }
         private void InitializePlotModel()
         {
-            PlotModel = new PlotModel { Title = "Expectativas do Mercado" };
+            PlotModel = new PlotModel { Title = IndicadorSelecionado.Substring(IndicadorSelecionado.IndexOf(": ") + 2)};
             PlotModel.Axes.Add(new DateTimeAxis { Position = AxisPosition.Bottom, StringFormat = "dd/MM/yyyy" });
             PlotModel.Axes.Add(new LinearAxis { Position = AxisPosition.Left });
         }

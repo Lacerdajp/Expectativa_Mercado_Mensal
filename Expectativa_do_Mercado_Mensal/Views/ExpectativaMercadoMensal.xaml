@@ -70,5 +70,6 @@
 
             </StackPanel>
         </Button>
+        <Label Grid.Column="1" Content="Expectativas de Mercado Mensal" HorizontalAlignment="Left" Margin="80,11,0,0" VerticalAlignment="Top" Width="395" FontFamily="Arial" FontSize="24" Height="46" Foreground="Black" FontWeight="Bold"/>
     </Grid>
 </Page>
