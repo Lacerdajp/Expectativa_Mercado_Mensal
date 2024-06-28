@@ -53,4 +53,4 @@ Leia mais sobre: MVVM.
 - É possível exportar os dados para um CSV. Ao pressionar o botão, o arquivo será adicionado na pasta Downloads da sua máquina, versionando a cada exportação.
 - Caso tenha rodado o Docker, é possível salvar esses dados em um banco de dados SQL Server. Não foram tratadas verificações de duplicidade de dados, sendo a única chave diferenciadora o ID (incremental)..
 - O código não está implementado tela de loading, portanto pode ser que dependendo da ação feita, a tela da aplicação trave, mas não se preocupe ele está apenas executando a tarefa passada. Caso não seja retornado com sucesso mostrará o erro.
-
+- Não foi criado o arquivo.ENV para as variaveis de ambiente, como a configuração se da pelo docker com o mesmo ambiente para todos os usuarios que rodarem o projeto, defini variaveis padrões para todos no ```App.settings```
