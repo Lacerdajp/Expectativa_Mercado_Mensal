@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace Expectativa_do_Mercado_Mensal.Views
 {
-    /// <summary>
-    /// Interaction logic for ExpectativaMercadoMensal.xaml
-    /// </summary>
     public partial class ExpectativaMercadoMensal : Page
     {
         public ExpectativaMercadoMensal()
@@ -26,6 +23,7 @@ namespace Expectativa_do_Mercado_Mensal.Views
             InitializeComponent();
             DataContext = new MainViewModel(ComboBox.SelectedItem.ToString(),datainicio.DisplayDate,datafim.DisplayDate);
         }
+     
 
     }
 }

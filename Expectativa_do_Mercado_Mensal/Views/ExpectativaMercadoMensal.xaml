@@ -6,9 +6,8 @@
       xmlns:local="clr-namespace:Expectativa_do_Mercado_Mensal.Views"
       xmlns:oxy="http://oxyplot.org/wpf"
       mc:Ignorable="d" 
-      d:DesignHeight="420"
+       d:DesignHeight="420"
       Title="ExpectativaMercadoMensal" Width="1165">
-
     <Grid HorizontalAlignment="Left" Width="1080" Height="420" VerticalAlignment="Center">
         <Grid.RowDefinitions>
             <RowDefinition Height="27*"/>
@@ -51,7 +50,7 @@
         </Button>
         <Border   Grid.RowSpan="2" Margin="0,86,-459,-23" Grid.Column="1" >
             <ScrollViewer  VerticalScrollBarVisibility="Auto" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="337" Width="785">
-                <DataGrid x:Name="dataGrid" Style="{StaticResource datagrid}" ItemsSource="{Binding Expectativas}" Height="302" Width="767"  />
+                <DataGrid x:Name="dataGrid"  IsReadOnly="True" Style="{StaticResource datagrid}" ItemsSource="{Binding Expectativas}" Height="302" Width="767"  />
             </ScrollViewer>
         </Border>
         <Button Grid.Column="1" Background="#FF77FF92"   Margin="760,64,-349,0" VerticalAlignment="Top"   Command="{Binding ExportCsvCommand}" Height="35" RenderTransformOrigin="-0.688,0.375" Style="{StaticResource botao}">
@@ -71,5 +70,7 @@
             </StackPanel>
         </Button>
         <Label Grid.Column="1" Content="Expectativas de Mercado Mensal" HorizontalAlignment="Left" Margin="80,11,0,0" VerticalAlignment="Top" Width="395" FontFamily="Arial" FontSize="24" Height="46" Foreground="Black" FontWeight="Bold"/>
+       
+
     </Grid>
 </Page>

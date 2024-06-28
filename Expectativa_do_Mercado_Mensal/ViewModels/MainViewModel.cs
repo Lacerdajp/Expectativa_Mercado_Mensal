@@ -67,7 +67,8 @@ namespace Expectativa_do_Mercado_Mensal.ViewModels
                 OnPropertyChanged(nameof(PlotModel));
             }
         }
-
+        private bool _aguarde;
+        
         public MainViewModel(string indicador, DateTime dateInicio, DateTime dateFim)
         {
             _dbContext = new ExpectativasContext();
@@ -76,7 +77,7 @@ namespace Expectativa_do_Mercado_Mensal.ViewModels
             IndicadorSelecionado = indicador;
             DataInicio = dateInicio;
             DataFim = dateFim;
-            LoadDataCommand = new RelayCommand(async (param) => await CarregarDados(IndicadorSelecionado,DataInicio, DataFim));
+            LoadDataCommand = new RelayCommand(async (param) => await CarregarDados(IndicadorSelecionado, DataInicio, DataFim));
             ExportCsvCommand = new RelayCommand(async(param) => await ExportCsv());
             SaveToDataBaseCommand = new RelayCommand(async (param) => await SaveToDatabase());
             InitializePlotModel();
@@ -88,12 +89,15 @@ namespace Expectativa_do_Mercado_Mensal.ViewModels
             if (indicador == null || ((!indicador.Equals("IPCA")) && (!indicador.Equals("IGP-M")) && (!indicador.Equals("Selic"))))
             {
                 message = "Erro no Indicador";
+                
                 MessageBox.Show(message);
+                
             }
             else if (dateInicio > dateFim)
             {
                 message = "Escolha uma Data Inicial menor que a Data Final";
                 MessageBox.Show(message);
+               
 
             }
             else
@@ -113,6 +117,8 @@ namespace Expectativa_do_Mercado_Mensal.ViewModels
                     UpdatePlot(data, DataFim, DataInicio, indicador);
                 }catch (Exception ex)
                 {
+                    MessageBox.Show(ex.ToString());
+                   
                 }
              }
         }
@@ -171,7 +177,6 @@ namespace Expectativa_do_Mercado_Mensal.ViewModels
                 
                 PlotModel.Series.Add(lineSeries);
             }
-            //
            
 
             double paddingX = (xMax - xMin) * 0.05;
@@ -203,6 +208,7 @@ namespace Expectativa_do_Mercado_Mensal.ViewModels
             });
 
             PlotModel.InvalidatePlot(true);
+            ;
         }
         private void InitializePlotModel()
         {
@@ -212,6 +218,7 @@ namespace Expectativa_do_Mercado_Mensal.ViewModels
         }
         private async Task SaveToDatabase()
         {
+     
             if (_dbContext.IsDatabaseConnected())
             {
                 try
@@ -226,16 +233,18 @@ namespace Expectativa_do_Mercado_Mensal.ViewModels
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-                    // Tratar exceções aqui
+                    
                 }
             }
             else
             {
                 MessageBox.Show("Base não Connectada");
+              
             }
         } 
         private async Task ExportCsv()
         {
+          
             try
             {
                 StringBuilder csv = new StringBuilder();
@@ -250,8 +259,6 @@ namespace Expectativa_do_Mercado_Mensal.ViewModels
                 string nomeFinal = nomeArquivo + extensaoArquivo;
                 string pastaArquivo = Path.Combine(pastaDownload, nomeFinal);
                 int index = 1;
-
-                // Check if the file already exists and increment the file name if it does
                 while (File.Exists(pastaArquivo))
                 {
                     nomeFinal = nomeArquivo + "(" + index + ")" + extensaoArquivo;
@@ -260,10 +267,12 @@ namespace Expectativa_do_Mercado_Mensal.ViewModels
                 }
                 File.WriteAllText(pastaArquivo, csv.ToString());
                 MessageBox.Show("Os dados foram salvos na pasta de Download como " + nomeFinal).ToString();
+                 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+           
             }
         }
 

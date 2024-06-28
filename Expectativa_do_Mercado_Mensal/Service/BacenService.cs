@@ -32,8 +32,7 @@ namespace Expectativa_do_Mercado_Mensal.Service
             request.Content = content;
             try { 
             var response = await client.SendAsync(request);
-            if (response.IsSuccessStatusCode)
-            {
+          
                 var json = await response.Content.ReadAsStringAsync();
                 JObject jsonObject = JObject.Parse(json);
 
@@ -50,15 +49,12 @@ namespace Expectativa_do_Mercado_Mensal.Service
                     result.Add(item.ToObject<ExpectativasMercado>());
                 }
                 return result;
-            }
-                MessageBox.Show(response.StatusCode.ToString());
-                return new List<ExpectativasMercado>();
+            
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show( ex.Message);
-                return new List<ExpectativasMercado>();
+                throw new InvalidOperationException(ex.Message);
 
             }
         }

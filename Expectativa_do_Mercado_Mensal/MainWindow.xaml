@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Aplication" Height="720" Width="1200"
         WindowStartupLocation="CenterScreen" WindowState="Normal" MaxWidth="1200" MaxHeight="720" MinHeight="720" MinWidth="1200">
-
+ 
     <StackPanel Background="#DCDCDC" >
         <Frame x:Name="main" NavigationUIVisibility="Hidden">
             
