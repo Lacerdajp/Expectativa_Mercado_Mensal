@@ -52,6 +52,5 @@ Leia mais sobre: MVVM.
 - Os gráficos de IPCA e IGP-M possuem 3 linhas representando os próximos meses de expectativa a partir da data final. Já o de Selic possui 2 linhas representando as próximas reuniões: uma para um período de dois meses e outra para um período de um mês.
 - É possível exportar os dados para um CSV. Ao pressionar o botão, o arquivo será adicionado na pasta Downloads da sua máquina, versionando a cada exportação.
 - Caso tenha rodado o Docker, é possível salvar esses dados em um banco de dados SQL Server. Não foram tratadas verificações de duplicidade de dados, sendo a única chave diferenciadora o ID (incremental)..
-
-
+- O código não está implementado tela de loading, portanto pode ser que dependendo da ação feita, a tela da aplicação trave, mas não se preocupe ele está apenas executando a tarefa passada. Caso não seja retornado com sucesso mostrará o erro.
 
